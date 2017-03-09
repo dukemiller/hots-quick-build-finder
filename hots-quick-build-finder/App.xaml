@@ -1,0 +1,59 @@
+﻿<Application
+    x:Class="hots_quick_build_finder.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:hots_quick_build_finder"
+    xmlns:models="clr-namespace:hots_quick_build_finder.Models"
+    xmlns:xaml="clr-namespace:hots_quick_build_finder.Xaml"
+    StartupUri="Views/MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ProgressBar.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Storyboard x:Key="Fade">
+                <DoubleAnimation
+                    Storyboard.TargetProperty="Opacity"
+                    From="0.0"
+                    To="1.0"
+                    Duration="0:0:0.65" />
+            </Storyboard>
+
+            <local:ViewModelLocator x:Key="Locator" />
+
+            <xaml:NumberCompareConverter x:Key="NumberCompareConverter" />
+
+            <DataTemplate x:Key="Square" DataType="{x:Type models:Square}">
+                <Border
+                    Width="12"
+                    Height="12"
+                    Margin="2"
+                    BorderThickness="1">
+                    <Border.BorderBrush>
+                        <SolidColorBrush Opacity="0.2" Color="White" />
+                    </Border.BorderBrush>
+                    <Rectangle Width="12" Height="12">
+                        <Rectangle.Style>
+                            <Style TargetType="{x:Type Rectangle}">
+                                <Setter Property="Fill" Value="#162C44" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Selected}" Value="True">
+                                        <Setter Property="Fill" Value="#FFB100" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Rectangle.Style>
+                    </Rectangle>
+                </Border>
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

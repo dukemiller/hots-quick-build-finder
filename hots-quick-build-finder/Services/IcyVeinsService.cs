@@ -32,8 +32,8 @@ namespace hots_quick_build_finder.Services
         public IcyVeinsService(ISettingsRepository settingsRepository)
         {
             _settingsRepository = settingsRepository;
-            _downloader.Headers["User-Agent"] = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:30.0) Gecko/20100101 Firefox/30.0";
-            _client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:30.0) Gecko/20100101 Firefox/30.0");
+            _downloader.Headers["User-Agent"] = "hots-quick-build-finder";
+            _client.DefaultRequestHeaders.Add("User-Agent", "hots-quick-build-finder");
         }
 
         // 

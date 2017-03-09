@@ -189,7 +189,7 @@
                                             <system:Boolean>True</system:Boolean>
                                         </DataTrigger.Value>
                                         <DataTrigger.Binding>
-                                            <MultiBinding Converter="{StaticResource NumberCompareConverter}">
+                                            <MultiBinding Converter="{StaticResource PageEndCompareConverter}">
                                                 <Binding Path="CurrentIndex" UpdateSourceTrigger="PropertyChanged" />
                                                 <Binding Path="MaxIndex" UpdateSourceTrigger="PropertyChanged" />
                                             </MultiBinding>

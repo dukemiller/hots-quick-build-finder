@@ -4,7 +4,7 @@ using System.Windows.Data;
 
 namespace hots_quick_build_finder.Xaml
 {
-    public class NumberCompareConverter : IMultiValueConverter
+    public class PageEndCompareConverter : IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {

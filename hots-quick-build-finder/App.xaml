@@ -29,7 +29,7 @@
 
             <local:ViewModelLocator x:Key="Locator" />
 
-            <xaml:NumberCompareConverter x:Key="NumberCompareConverter" />
+            <xaml:PageEndCompareConverter x:Key="PageEndCompareConverter" />
 
             <DataTemplate x:Key="Square" DataType="{x:Type models:Square}">
                 <views:Square />

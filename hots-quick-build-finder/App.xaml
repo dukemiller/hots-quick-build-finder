@@ -5,6 +5,7 @@
     xmlns:local="clr-namespace:hots_quick_build_finder"
     xmlns:models="clr-namespace:hots_quick_build_finder.Models"
     xmlns:xaml="clr-namespace:hots_quick_build_finder.Xaml"
+    xmlns:views="clr-namespace:hots_quick_build_finder.Views"
     StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -31,27 +32,7 @@
             <xaml:NumberCompareConverter x:Key="NumberCompareConverter" />
 
             <DataTemplate x:Key="Square" DataType="{x:Type models:Square}">
-                <Border
-                    Width="12"
-                    Height="12"
-                    Margin="2"
-                    BorderThickness="1">
-                    <Border.BorderBrush>
-                        <SolidColorBrush Opacity="0.2" Color="White" />
-                    </Border.BorderBrush>
-                    <Rectangle Width="12" Height="12">
-                        <Rectangle.Style>
-                            <Style TargetType="{x:Type Rectangle}">
-                                <Setter Property="Fill" Value="#162C44" />
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding Selected}" Value="True">
-                                        <Setter Property="Fill" Value="#FFB100" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Rectangle.Style>
-                    </Rectangle>
-                </Border>
+                <views:Square />
             </DataTemplate>
 
         </ResourceDictionary>

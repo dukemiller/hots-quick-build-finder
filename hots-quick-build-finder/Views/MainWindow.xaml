@@ -29,7 +29,7 @@
             <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <materialDesign:DialogHost FocusVisualStyle="{x:Null}" IsOpen="{Binding IsLoadingData}">
+    <materialDesign:DialogHost FocusVisualStyle="{x:Null}" IsOpen="{Binding IsLoadingData}" IsTabStop="False">
         <materialDesign:DialogHost.DialogContent>
             <views:Loading />
         </materialDesign:DialogHost.DialogContent>
@@ -48,12 +48,13 @@
                     IsTabStop="False"
                     Style="{StaticResource MaterialDesignFlatButton}" />
                 <materialDesign:Card
+                    Margin="5,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
+                    Background="#162C44"
+                    IsTabStop="False"
                     DockPanel.Dock="Right"
-                    Margin="5,0"
-                    ToolTip="Update the hero list."
-                    Background="#162C44">
+                    ToolTip="Update the hero list.">
                     <materialDesign:PackIcon
                         Width="30"
                         Height="30"
@@ -61,6 +62,7 @@
                         VerticalAlignment="Center"
                         Background="#162C44"
                         FontSize="22"
+                        IsTabStop="False"
                         Kind="AccessPoint" />
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseDown">
@@ -81,13 +83,13 @@
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Center"
                 DockPanel.Dock="Bottom"
+                KeyboardNavigation.TabNavigation="None"
                 LastChildFill="False">
-
                 <materialDesign:Card
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
-                    ToolTip="Retrieve any new builds."
-                    Background="#162C44">
+                    Background="#162C44"
+                    ToolTip="Retrieve any new builds.">
                     <materialDesign:Card.Style>
                         <Style TargetType="materialDesign:Card">
                             <Style.Triggers>
@@ -131,12 +133,12 @@
                     <materialDesign:PackIcon
                         Width="30"
                         Height="30"
-                        ToolTip="Open up the build page."
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Background="#162C44"
                         FontSize="22"
-                        Kind="OpenInNew" />
+                        Kind="OpenInNew"
+                        ToolTip="Open up the build page." />
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseDown">
                             <i:InvokeCommandAction Command="{Binding WebPageCommand}" />
@@ -217,8 +219,8 @@
                         Width="45"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
-                        ToolTip="Total builds available."
-                        Background="#162C44">
+                        Background="#162C44"
+                        ToolTip="Total builds available.">
                         <materialDesign:Card.Style>
                             <Style TargetType="materialDesign:Card">
                                 <Style.Triggers>
@@ -241,7 +243,8 @@
                 Padding="4"
                 VerticalAlignment="Stretch"
                 Background="#162C44"
-                IsTabStop="False">
+                IsTabStop="False"
+                KeyboardNavigation.TabNavigation="None">
                 <views:Build Margin="4" DataContext="{Binding SelectedBuild, UpdateSourceTrigger=PropertyChanged, NotifyOnTargetUpdated=True}">
                     <views:Build.Triggers>
                         <EventTrigger RoutedEvent="Binding.TargetUpdated">

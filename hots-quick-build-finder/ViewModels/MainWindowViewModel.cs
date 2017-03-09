@@ -53,7 +53,6 @@ namespace hots_quick_build_finder.ViewModels
             RefreshCommand = new RelayCommand(Refresh);
             WebPageCommand = new RelayCommand(Webpage);
             UpdateCommand = new RelayCommand(Update);
-            // LoadedCommand = new RelayCommand(CreateTray);
 
             RegisterService();
 
@@ -75,8 +74,6 @@ namespace hots_quick_build_finder.ViewModels
         public RelayCommand RefreshCommand { get; set; }
 
         public RelayCommand WebPageCommand { get; set; }
-
-        public RelayCommand LoadedCommand { get; set; }
 
         public RelayCommand UpdateCommand { get; set; }
 

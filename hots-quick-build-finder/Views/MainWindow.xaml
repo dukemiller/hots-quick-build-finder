@@ -24,11 +24,6 @@
     TextOptions.TextFormattingMode="Ideal"
     TextOptions.TextRenderingMode="Auto"
     mc:Ignorable="d">
-    <i:Interaction.Triggers>
-        <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
-        </i:EventTrigger>
-    </i:Interaction.Triggers>
     <materialDesign:DialogHost FocusVisualStyle="{x:Null}" IsOpen="{Binding IsLoadingData}" IsTabStop="False">
         <materialDesign:DialogHost.DialogContent>
             <views:Loading />

@@ -203,7 +203,8 @@ namespace hots_quick_build_finder.ViewModels
 
         private async void Update()
         {
-            if ((DateTime.Now - _settingsRepo.LastUpdated).TotalDays >= 3)
+            // Manual updates only work if there is no existing hero list or it's been three days since the last check
+            if (_settingsRepo.Heroes.Count == 0 || (DateTime.Now - _settingsRepo.LastUpdated).TotalDays >= 3)
                 await UpdateHerolist();
         }
 

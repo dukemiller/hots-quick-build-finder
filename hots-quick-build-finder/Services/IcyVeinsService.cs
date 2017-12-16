@@ -131,17 +131,12 @@ namespace hots_quick_build_finder.Services
         private static List<Talent> ParseTalents(HtmlNode talentsNode)
         {
             return talentsNode
-                .Descendants("a")
-                .Select(a =>
+                .SelectNodes("./div[@class='heroes_tldr_talent_tier']")
+                .Select(div =>
                 {
-                    var visualTree = a
-                        .Descendants("span")
-                        .First(span => span.Attributes["class"]?.Value.Equals("heroes_tldr_talent_tier_visual") == true)
-                        .Descendants("span")
-                        .ToList();
-
-                    var header = a.Descendants("span").First().InnerText;
-                    var image = "http://" + a.Descendants("img").First().Attributes["src"].Value.Substring(2);
+                    var visualTree = div.SelectNodes("./span[@class='heroes_tldr_talent_tier_visual']/span").ToList();
+                    var header = div.SelectSingleNode("./span[@class='heroes_tldr_talent_tier_subtitle']").InnerText;
+                    var image = "http://" + div.SelectSingleNode("./a/img").Attributes["src"].Value.Substring(2);
                     var position = visualTree.TakeWhile(span => span.Attributes["class"].Value.Contains("no")).Count();
                     var slots = visualTree.Count;
 
